@@ -1,0 +1,5 @@
+# Ignore db files
+/docker/db/data/*
+!/docker/db/data/.keep
+/docker/db/sql/*
+!/docker/db/sql/.keep
