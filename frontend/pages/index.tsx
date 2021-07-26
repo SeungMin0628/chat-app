@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { DefaultLayout } from '@/layouts'
+import { DefaultTemplate } from '@/templates'
 import { SamplesApi } from '@/libs/api'
 
 const Index: React.VFC = () => {
@@ -10,7 +10,7 @@ const Index: React.VFC = () => {
   const pullData = async () => {
     await SamplesApi.show()
       .then(response => {
-        const { message } = JSON.parse(response.data)
+        const { message } = response.data
         setSample(message)
       })
       .catch(_error => {
@@ -26,17 +26,16 @@ const Index: React.VFC = () => {
   }, [])
 
   return (
-    <DefaultLayout>
+    <DefaultTemplate>
       {!loading && (
         <>
-          <p>hello world</p>
           <p>{sample}</p>
         </>
       )}
       {loading && (
         <p>Loading......</p>
       )}
-    </DefaultLayout>
+    </DefaultTemplate>
   )
 }
 
